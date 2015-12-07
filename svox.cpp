@@ -19,7 +19,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 */
 
-// $Revision: 2910 $ $Date:: 2015-12-06 #$ $Author: serge $
+// $Revision: 2920 $ $Date:: 2015-12-07 #$ $Author: serge $
 
 
 #include "svox.h"             // self
@@ -34,6 +34,12 @@ namespace svox
 
 bool Svox::say( const std::string & text, const std::string & filename, const std::string & lang, std::string & error )
 {
+    if( lang.empty() )
+    {
+        error = "lang is not defined";
+        return false;
+    }
+
     std::ostringstream s;
 
     s <<
